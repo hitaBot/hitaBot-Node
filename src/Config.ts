@@ -10,7 +10,7 @@ export var Config = {
 
 export function LoadSettings(): Promise<String> {
 	var promise = new Promise(function(resolve, reject) {
-		var configBuffer = fs.readFile(configFile, function(err, data) {
+		fs.readFile(configFile, function(err, data) {
 			if (err) {
 				reject(Error("Failed"));
 			} else {

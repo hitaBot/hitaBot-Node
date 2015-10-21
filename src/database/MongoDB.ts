@@ -3,6 +3,7 @@
 //var seq = require('sequelize');
 import * as mongoose from 'mongoose';
 import {Config} from '../Config';
+import {Bot} from '../interfaces/Bots';
 
 var db2: mongoose.Connection;
 var Schema = mongoose.Schema;
@@ -36,23 +37,15 @@ export class BotDatabase {
 			this.Bot = db2.model('Bots', botSchema);
 		};
 
-		GetBots(): Bot[] {
+		GetBots(callback) {
 			var bot: Array<Bot> = [];
 			this.Bot.find({}, { "_id": 0 }, function(err, res) {
 				if (err) return;
 				console.log('Log', res);
 				bot = res.slice();
 				console.log('Log2', bot);
+				callback(bot);
 			});
-			return bot;
 		}
 	// DB Schemas
 };
-
-export interface Bot {
-	bot: String,
-	authToken: String,
-	owner: String,
-	team: Array<String>,
-	public: Boolean
-}
