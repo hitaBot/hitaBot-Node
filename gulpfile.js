@@ -27,6 +27,6 @@ gulp.task('babel', ['ts'], function () {
 	return gulp.src(['build/*.js', 'build/*/*.js'])
 		.pipe(sourcemaps.init())
 		.pipe(babel({ "modules": "commonStrict" }))
-		.pipe(sourcemaps.write('.', { sourceRoot: '/Users/Alex/Desktop/hitaBotNode/src' }))
+		.pipe(sourcemaps.write('.', { sourceRoot: '/Users/Alex/Desktop/hitabot-node/src' }))
 		.pipe(gulp.dest('dist'));
 });

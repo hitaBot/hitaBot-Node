@@ -1,4 +1,6 @@
-export interface Bot {
+import * as mongoose from 'mongoose';
+export interface IBot {
+	_id: mongoose.Types.ObjectId,
 	bot: string,
 	authToken: string,
 	owner: string,
